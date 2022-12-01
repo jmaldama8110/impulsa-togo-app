@@ -1,0 +1,7 @@
+{
+  "name": "impulsa-togo-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
