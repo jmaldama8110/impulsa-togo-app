@@ -1,0 +1,76 @@
+.centrado-C{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.hrV5 {
+    background: #D4D4D4
+}
+
+.img-C{
+    Width: 211px;
+    height: 90px;
+
+    margin-top: 40px;
+}
+
+.img-CSkeleton{
+    margin-top: -5.7rem;
+}
+
+.icons-C{
+    margin-top: 10px;
+    text-align: center;
+    box-shadow: none;
+}
+
+.col-C{
+    align-items: center;
+    font-size: 30px;
+    color: #E25C10;
+}
+
+.i-C{
+    margin-bottom: 0px;
+}
+
+.txt-C{
+    margin-top: 0px;
+    font-size: 12px;
+}
+
+.btn1-C{
+    font-size: 18.5px !important;
+    margin-top: 40px;
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.cardTel-c{
+    width: 100%;
+    margin-top: 0px;
+    margin-left: 0px;
+    box-shadow: none;
+    background: #F8F8F8;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 15px;
+    color: black;
+}
+
+.col2-C{
+    height: 50px;
+    align-items: center;
+}
+
+.btn2-C{
+    font-size: 18.5px !important;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.txt-versionC{
+    color: #E25C10;
+    font-size: 15px;
+}

@@ -1,0 +1,23 @@
+.date {
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 14px;
+    line-height: 40px;
+}
+
+.textdesborded {
+    /* display: inline-block; */
+    overflow-wrap: break-word;
+    word-break: break-all;
+    --min-height: 20px;
+}
+
+.AlertNotification {
+    text-align: justify;
+    hyphens: auto;
+}
+
+.dateNoti {
+    font-size: 12px;
+    /* font-weight: bold; */
+}

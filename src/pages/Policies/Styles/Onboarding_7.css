@@ -1,0 +1,153 @@
+/*------------Onboarding 7------------*/
+
+.w {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-O7 {
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 140px;
+    height: 140px;
+}
+
+.txt1-O7 {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+}
+
+.txt2-O7 {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15%;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 28px;
+    text-align: justify;
+    letter-spacing: -0.03em;
+}
+
+.btn-O7 {
+    margin-bottom: 1rem;
+    width: 100%;
+    margin-top: 53px;
+    color: #003fa2;
+    --background: var(--ion-background-color, rgb(255, 255, 255));
+}
+
+.Footer-O7 {
+    margin-bottom: 10px;
+}
+
+
+/*------------Onboarding 8------------*/
+
+.img-O8 {
+    margin-top: 150px;
+    width: 140px;
+    height: 140px;
+}
+
+.txt1-O8 {
+    margin-top: 80px;
+    width: 260px;
+    height: 158px;
+}
+
+.txt2-O8 {
+    width: 260px;
+    height: 47px;
+}
+
+.txt-ani {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 30px;
+    animation-duration: 2s;
+    text-align: center;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+    /* animation-direction: alternate; */
+}
+
+@keyframes slidein {
+    from {
+        transform: translateX(-25vw);
+    }
+    to {
+        transform: translateX(25vw);
+        opacity: 0.01;
+    }
+}
+
+
+/*---------DownloadMyPolicies*/
+
+.card-D {
+    box-shadow: none;
+    background: #F0F0F0;
+    ;
+    border-radius: 12px;
+}
+
+.Col-D {
+    padding: 0px;
+    margin: 0px;
+}
+
+.icon-D {
+    margin: 0;
+    font-size: 25px;
+    font-weight: bold;
+    color: #979797;
+}
+
+.col2-D {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 24px;
+    display: flex;
+    letter-spacing: 0.01em;
+    color: #263238;
+    justify-content: start;
+    align-items: center;
+}
+
+.Col3-D {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.btn-D {
+    --box-shadow: none;
+    height: 51.91px;
+    text-transform: initial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 18px;
+    letter-spacing: 0.02em;
+    --border-radius: 12px;
+    border-radius: 12px;
+}
+
+.btn2-D {
+    margin-top: 27px;
+    color: #ffffff;
+    /* --background: var(--ion-background-color, #003fa2); */
+}
+
+.btn3-D {
+    margin-top: 13.09px;
+    color: #003fa2;
+    border: 1px solid #003fa2;
+    /* --background: var(--ion-background-color, #d67e2c); */
+}

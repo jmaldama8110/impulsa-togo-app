@@ -1,0 +1,58 @@
+.imgContentsModal {
+    margin-top: 10px;
+    border-radius: 50px;
+    height: 103px;
+    width: 103px;
+    /* margin-left: 45px; */
+    /* margin-top: 25px; */
+    margin-left: auto;
+    margin-right: auto;
+    background: #FFF;
+    /* margin-bottom: 1px solid #FFF; */
+    border-color: #FFF;
+    border-bottom: 1px solid #FFF;
+}
+
+.logoModal {
+    transform: scale(0.75);
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border-radius: 50px;
+}
+
+.NameEnterprise {
+    /* text-align: center; */
+    /* margin-left: 85px; */
+    margin-top: 50px;
+    display: block;
+    color: #FFF;
+    font-size: 2rem;
+    /* margin-top: -65px; */
+}
+
+.divider {
+    margin-left: 10%;
+    margin-top: -10px;
+    background: transparent;
+    border-bottom: 1px solid #FFF;
+    width: 80%;
+}
+
+.titleInstructions {
+    font-size: 2rem;
+    color: #FFF;
+    font-weight: bold;
+}
+
+.instrucctions {
+    font-size: 1.1rem;
+    color: #FFF;
+    margin-left: 25px;
+    /* margin-bottom: 20px; */
+}

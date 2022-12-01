@@ -1,0 +1,69 @@
+.contents {
+    padding: 0;
+    margin-bottom: 15px;
+    /* width: 335px; */
+    height: 105px;
+    border-radius: 14px;
+    padding-left: 15px;
+    ;
+}
+
+.imgContents {
+    margin-top: 10px;
+    border-radius: 50px;
+    height: 75px;
+    width: 75px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #FFF;
+}
+
+.logoEnterprise {
+    transform: scale(0.75);
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border-radius: 50px;
+}
+
+.contentName {
+    padding: 5px;
+    /* padding: 20%; */
+    line-height: 105px;
+    /* position: relative; */
+    /* margin-top: 30px; */
+}
+
+.divText {
+    padding: 0;
+    position: relative;
+    top: 25%;
+    font-size: 20px;
+}
+
+.name {
+    margin-left: auto;
+    margin-right: auto;
+    /* margin-top: 20px; */
+    /* display: block; */
+    /* margin-bottom: auto; */
+    font-size: 20px;
+    color: #fff;
+    /* display: block;
+    align-items: center; */
+}
+
+.iconsArrow {
+    margin-top: 25px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.colItem {
+    right: 15px;
+}

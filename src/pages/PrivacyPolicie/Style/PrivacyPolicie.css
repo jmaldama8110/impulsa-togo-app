@@ -1,0 +1,10 @@
+.titlePrivacy {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.text {
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    /* letter-spacing: 0.035em; */
+}

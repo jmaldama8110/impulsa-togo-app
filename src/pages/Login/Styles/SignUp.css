@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    src: url(https://fonts.gstatic.com/s/roboto/v29/KFOkCnqEu92Fr1MmgVxFIzIFKw.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+.imgLogo {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    transform: scale(0.6);
+}
+
+.row {
+    margin-top: 0rem;
+}
+
+.label {
+    /* margin-bottom: 1rem; */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
+}
+
+#itemLabel {
+    margin-bottom: 5px;
+}
+
+.ionSelect {
+    max-width: 100%;
+}
+
+.txt {
+    font-size: 0.9rem;
+    font-family: Roboto;
+}
+
+.btnContinuar {
+    --border-radius: 12px;
+    margin-top: 3rem;
+    text-transform: inherit;
+    /* font-family: Roboto; */
+}
+
+.checkBoxTerminos {
+    background: transparent;
+    --size: 20px;
+    /* margin-right: 10px; */
+    padding: 0;
+    margin-top: 30px;
+    /* margin-bu: 0; */
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.textCheckBox {
+    padding-top: 15px;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.textCheckBox p {
+    text-decoration: underline;
+}

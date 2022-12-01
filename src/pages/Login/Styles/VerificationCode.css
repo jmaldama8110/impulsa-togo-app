@@ -1,0 +1,84 @@
+#header {
+    position: absolute;
+    --background: transparent;
+    --color: white;
+}
+
+#toolbar {
+    position: absolute;
+    --background: transparent;
+    --color: white;
+    --border-style: none;
+}
+
+.contentForm {
+    top: 10%;
+    /* bottom: auto; */
+}
+
+.title2 {
+    font-size: 2.2rem;
+    margin-top: 3rem;
+}
+
+.inputs {
+    background: rgba(0, 0, 0, 0.1);
+    color: #000;
+    border-radius: 16px;
+    height: 65px;
+    width: 65px;
+    padding-right: 15px;
+    text-align: center;
+    position: relative;
+    font-size: 2rem;
+}
+
+#rowInputs {
+    /* margin-top: 3rem; */
+}
+
+#rowOptions {
+    margin-top: 1.5rem;
+    /* margin-bottom: 15%; */
+    text-align: center;
+}
+
+.btnVerify {
+    width: 85%;
+    margin-top: 30%;
+    bottom: 0;
+    --border-radius: 12px;
+    text-transform: inherit;
+}
+
+.footer {
+    position: relative !important;
+    bottom: 0px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    min-height: 100%;
+    /* left: 0px; */
+    /* bottom: 0px;
+    height: 30px;
+    width: 100%;
+    background: #999; */
+}
+
+.ionfooter {
+    position: relative !important;
+    /* margin-top: 100%; */
+    bottom: 0;
+    /* height: 0%; */
+    /* top: 10%;
+    */
+}
+
+.rowButton {
+    margin-top: 40px;
+}
+
+@media (min-aspect-ratio: 8/9) {
+    .hide-footer {
+        display: none;
+    }
+}

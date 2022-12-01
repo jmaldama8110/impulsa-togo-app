@@ -1,0 +1,46 @@
+.imgLogoSignIn2 {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7rem;
+    margin-bottom: 2.5rem;
+    transform: scale(1);
+}
+
+.imgLogoSignIn2Skeleton {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    border-radius: 4px;
+}
+
+.row {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.ionSelect {
+    max-width: 100%;
+}
+
+#btnIniciar {
+    margin-top: 5rem;
+    background: #003FA2;
+    color: #FFF;
+    border-radius: 12px;
+    text-transform: inherit;
+    --box-shadow: none;
+}
+
+.btnsignIn {
+    --border-radius: 12px;
+    margin-top: 3rem;
+    text-transform: inherit;
+}
+
+.textOptions1 {
+    margin-top: 1rem;
+}
+
+.textOptions2 {
+    margin-top: 1rem;
+}

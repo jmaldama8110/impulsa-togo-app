@@ -1,0 +1,226 @@
+.div-A {
+    justify-content: center;
+    align-items: center;
+    margin-top: 11rem;
+}
+
+.txt1-A {
+    margin-top: 15px;
+    text-align: start;
+    /* font-size: 20px; */
+}
+
+.rowCard-A {
+    margin: 0px;
+    padding-top: 0px;
+}
+
+.card-A {
+    box-shadow: none;
+    font-size: 16px;
+    height: 75px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.col1-A {
+    padding: 0px;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.col2-A {
+    padding: 0px;
+    text-align: start !important;
+    margin-bottom: 0px;
+    font-size: 15px;
+}
+
+.txt-A {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.txt3-A {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rowSlide-A {
+    margin-top: -1rem;
+}
+
+.Acordion-H2 {
+    padding: 0px;
+    margin-top: 1.5rem;
+}
+
+.ItemHeader-H2 {
+    margin-bottom: 0PX;
+    border-radius: 12px;
+}
+
+.ItemHeader2-H2 {
+    margin-top: 0px;
+    border-radius: 12px;
+}
+
+.col-H2 {
+    padding: 0px;
+    font-size: 20px;
+    /* Centramos x y y */
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.col2-H2 {
+    /* Centramos x y y */
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+}
+
+.img1Col-H2 {
+    /* justify-content: center; */
+    width: 25px;
+    height: 25px;
+}
+
+.IconCol-H2 {
+    width: 25px;
+    height: 25px;
+}
+
+.btn-H {
+    margin-top: 50px;
+    width: 335px;
+    height: 53px;
+}
+
+.List-H2 {
+    background: #F8F8F8;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.row-H2 {
+    --background: #F8F8F8;
+}
+
+.elipse {
+    width: 36.22px;
+    height: 36.22px;
+    border-radius: 50%;
+    background: #003FA2;
+    color: white;
+    margin-bottom: 0px;
+    font-size: 25px;
+    font-weight: bold;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.txtC2-HM {
+    margin-top: 5px;
+    font-size: 16px;
+    text-align: justify !important;
+}
+
+.ajustar-txt {
+    overflow-wrap: break-word;
+    word-break: break-all;
+    /*evita desbordar el contenedor*/
+    /* white-space: nowrap !important; */
+}
+
+.label-H2 {
+    margin: 0px;
+    padding: 0px;
+}
+
+.Col3Icon-H2 {
+    /* margin-top: 7px; */
+    font-size: 35px;
+    color: black;
+    font-weight: bold;
+}
+
+.btn-H2 {
+    justify-content: end;
+}
+
+.toast-success {
+    --border-radius: 15px;
+    text-align: center;
+    width: 60%;
+    margin-left: 20%;
+}
+
+.toast-danger {
+    --border-radius: 15px;
+    text-align: center;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.btn-ContainerH {
+    display: flex;
+    text-align: end !important;
+    justify-content: end;
+    padding: 0px;
+}
+
+.btn-Add {
+    margin-top: -25px;
+    width: 36px;
+    height: 36px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-H {
+    color: #E15200;
+    --background: #ffff;
+    font-size: 12px;
+    font-weight: normal !important;
+    width: 40%;
+    height: 35px;
+    border: 1px solid #003fa2;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    padding: 0px;
+}
+
+.col-NextH {
+    padding: 0px;
+    padding-top: 0rem;
+    animation-duration: 2.5s;
+    text-align: center;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+@keyframes slidein {
+    from {
+        transform: translateX(-25vw);
+    }
+    to {
+        transform: translateX(30vw);
+        opacity: 0.01;
+    }
+}
+
+.fab-NextH {
+    padding: 0px;
+}
+
+.img-NextH {
+    margin-top: 4px;
+    width: 35px;
+    height: 35px;
+}

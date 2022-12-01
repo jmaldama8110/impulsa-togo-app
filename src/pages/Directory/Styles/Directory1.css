@@ -1,0 +1,54 @@
+.imgPhone {
+    height: 101px;
+    width: 101px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.imgPhoneSkeleton {
+    height: 101px;
+    width: 101px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    margin-top: -100px;
+}
+
+.textTitle {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.textSubtitle {
+    padding-left: 20px;
+    padding-right: 15px;
+    display: block;
+    font-size: 1.1rem;
+    text-align: justify;
+    /* --letter-spacing: 1; */
+    hyphens: auto;
+    /* hyphens: auto; */
+}
+
+.imgPasos {
+    margin: 2.5rem auto;
+    width: 70%;
+    padding: 4px;
+    border-radius: 12px;
+    /* border: 1px solid #FFF; */
+    box-shadow: 1px 1px 10px 8px rgba(255, 255, 255, 0.34);
+}
+
+.imgPasosSkeleton {
+    height: 123px;
+    width: 315px;
+    border-radius: 4px;
+    margin-top: -1rem;
+}
+
+.btns {
+    --border-radius: 12px;
+    --border-width: 1.3px;
+    text-transform: unset;
+}

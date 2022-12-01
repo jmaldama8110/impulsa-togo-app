@@ -1,0 +1,115 @@
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    src: url(https://fonts.gstatic.com/s/roboto/v29/KFOkCnqEu92Fr1MmgVxFIzIFKw.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+.slideS1 {
+    height: 100%;
+    --bullet-background: var(--ion-background-color, #fafafa);
+    --bullet-background-active: #f4f5f8;
+}
+
+.Centrado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imagenS1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-O {
+    position: relative;
+    margin-top: 8rem;
+    width: 150px;
+    height: 150px;
+}
+
+.img-OSkeleton{
+    margin-top: -9.5rem !important;
+}
+
+.containerTxt1O{
+    margin-top: 60px;
+    height: 120px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.txtimgS1 {
+    /* font-family: Roboto; */
+    font-style: normal;
+    font-weight: bold;
+    font-size: 33px;
+    line-height: 50px;
+    text-align: center;
+    letter-spacing: -0.03em;
+    /* margin-bottom: 24px; */
+}
+
+/* .txt1imgO {
+    width: 308px;
+    height: 100spx;
+}
+
+.txt2imgO {
+    width: 375px;
+    height: 100px;
+}
+
+.txt3imgO {
+    width: 339px;
+    height: 100px;
+} */
+
+.txt2O{
+    text-align: center;
+    width: 320px;
+    height: 56px;
+    line-height: 28px;
+    font-size: 20px;
+    /* margin-bottom: 110px; */
+    margin-bottom: 4.1rem;
+    /* margin-top: 20px; */
+}
+
+.btn {
+    --box-shadow: none;
+    font-size: 18px;
+    text-transform: initial;
+    --border-radius: 12px;
+    width: 321px;
+    height: 51.91px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    /* font-family: 'Roboto'; */
+    text-transform: initial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 18px;
+}
+
+.boton {
+    width: 100%;
+    --box-shadow: none;
+    --border: 1px solid #ffff;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    --background: var(--ion-background-color, rgb(255, 255, 255));
+    color: #003fa2;
+}
+
+.boton2 {
+    width: 100%;
+    margin-top: 14.09px;
+    margin-bottom: 40.09px;
+    --background: var(--ion-background-color, #003fa2);
+    color: #ffffff;
+    border: 1px solid #FFFFFF;
+}

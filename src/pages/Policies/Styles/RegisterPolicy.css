@@ -1,0 +1,21 @@
+.imgLogoRPolicy {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 133px;
+    margin-bottom: 57px;
+    transform: scale(0.7);
+}
+
+
+/* .btnSubmit {
+    margin-top: 180px !important;
+} */
+
+.btnBack {
+    margin-top: 1rem !important;
+}
+
+.txt {
+    font-size: 0.9rem;
+    font-family: Roboto;
+}

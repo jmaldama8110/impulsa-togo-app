@@ -1,0 +1,198 @@
+.logoEnterprise {
+    transform: scale(0.75);
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border-radius: 50px;
+}
+
+.logoEnterprise img {
+    border-radius: 80px;
+}
+
+.logoContent {
+    /* margin-top: 20px; */
+    border-radius: 50px;
+    height: 5.5rem;
+    width: 5.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    background: #FFF;
+}
+
+.statusActive {
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    padding-top: 2px;
+    background: #53E986;
+    border-radius: 4px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    color: #000;
+    bottom: 20px;
+    position: relative;
+    z-index: 2;
+    margin-top: 35px;
+    margin-bottom: -62px;
+}
+
+.statusWasNotPaid {
+    width: 115px;
+    height: 30px;
+    line-height: 30px;
+    padding-top: 2px;
+    background: #fc2626;
+    border-radius: 4px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    color: #FFF;
+    bottom: 20px;
+    position: relative;
+    z-index: 2;
+    margin-top: 35px;
+    margin-bottom: -62px;
+}
+
+.statusWarning {
+    width: 145px;
+    height: 30px;
+    line-height: 30px;
+    padding-top: 2px;
+    background: #ffba00;
+    border-radius: 4px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    color: #000;
+    bottom: 20px;
+    position: relative;
+    z-index: 2;
+    margin-top: 35px;
+    margin-bottom: -62px;
+}
+
+.statusSkeleton {
+    width: 115px;
+    height: 30px;
+    line-height: 30px;
+    padding-top: 2px;
+    background: #CCC;
+    border-radius: 4px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    color: #000;
+    bottom: 20px;
+    position: relative;
+    z-index: 2;
+    top: 40px;
+    margin-bottom: -62px;
+}
+
+.content1 {
+    width: 335px;
+    /* height: 277px; */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 28px;
+    background: #FFF;
+    box-shadow: -10px 10px 20px rgba(153, 153, 153, 0.12), 10px 10px 24px rgba(153, 153, 153, 0.08);
+    border-radius: 6px;
+    padding: 1.5rem;
+    /* padding-left: 2rem; */
+    color: #000;
+    z-index: 1;
+}
+
+.content2 {
+    width: 293px;
+    height: 41px;
+    background: #941C80;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -20px;
+    border-radius: 6px;
+    z-index: -1;
+    position: relative;
+}
+
+.LabelTitle {
+    padding-left: 1rem;
+    font-size: 14px;
+}
+
+.LabelText {
+    padding: 0;
+    margin: 0;
+    margin-bottom: -7px;
+}
+
+.itemText {
+    /* display: flex; */
+    padding-right: 1rem;
+    margin-top: -1px;
+    margin-bottom: 1.5px;
+    font-size: 14px;
+    --border-color: #000;
+    --min-height: 40px;
+}
+
+.footerButtons {
+    /* margin-top: 0; */
+    /* padding-top: 0; */
+    margin: 0;
+    padding: 0;
+}
+
+.toolbarFooter {
+    margin: 0;
+    padding: 0;
+}
+
+.colFooter {
+    margin: 0;
+    padding: 0;
+}
+
+.bodyFooter {
+    margin-top: 0;
+}
+
+.btnBack {
+    margin-bottom: 0px;
+}
+
+.btnContinuar {
+    border-radius: 12px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    text-transform: inherit;
+    border: 1px solid #FFF;
+}
+
+.btnContinuar2 {
+    --border-radius: 12px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    text-transform: inherit;
+    /* border: 1px solid #FFF; */
+}
+
+.toast-download {
+    --box-shadow: none;
+    --border-radius: 15px;
+    text-align: center;
+    width: 84%;
+    margin-left: 8%;
+    --background: #e1dede;
+    color: #003FA2;
+    font-size: 15px;
+}

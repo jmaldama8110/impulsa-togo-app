@@ -1,0 +1,147 @@
+.divAvatar {
+    height: 3rem;
+}
+
+.imgCentral {
+    margin-top: -65px;
+    height: 6rem;
+    /* padding-left: 10px; */
+    /* margin-top: -50px;
+    position: absolute;
+    width: 30%; */
+}
+
+.imgCentralMTop {
+    /* margin-top: 0; */
+    height: 1rem;
+    /* padding-left: 10px; */
+    /* margin-top: -50px;
+    position: absolute;
+    width: 30%; */
+}
+
+.SkeletonLogo {
+    margin-top: -100px;
+    height: 103px;
+    width: 103px;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+}
+
+.nombreUsuario {
+    font-size: 1.5rem;
+}
+
+.subtitle {
+    margin: 0 auto;
+    width: 260px;
+    text-align: center;
+}
+
+.imgAvatar {
+    margin-top: -15px;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    margin-right: 13px;
+    border: 1.2px solid #003FA2;
+}
+
+.countMsg {
+    position: absolute;
+    margin-top: -8px;
+    display: inline-block;
+    width: 30px;
+    height: 17px;
+    border-radius: 42px;
+    background: #f03939;
+    color: #fff;
+}
+
+.numMsg {
+    display: inline-block;
+    position: relative;
+    top: 40%;
+    transform: translateY(-50%);
+    font-size: 13px;
+}
+
+
+/*                      Menu                               */
+
+.sideOpen {
+    left: -10%;
+    width: 70%;
+    height: 100%;
+    /* 100% Full-height */
+    /* 0 width - change this with JavaScript */
+    position: fixed;
+    /* Stay in place */
+    z-index: 2;
+    /* Stay on top */
+    top: 20px;
+    background-color: #FFFFFF;
+    /* Black*/
+    /* overflow-x: hidden; */
+    /* Disable horizontal scroll */
+    /* padding-top: 60px; */
+    /* Place content 60px from the top */
+    transition: 0.3s;
+    /* box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5); */
+    box-shadow: -3px 4px 20px 1px rgb(0, 0, 0, 50%);
+    /* box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5); */
+}
+
+.sideClose {
+    /* transition: 0.5s; */
+    width: 0%;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.iconCloseSideNav {
+    /* margin-right: 18%; */
+}
+
+.titleSideNav {
+    margin-left: 16%;
+    font-size: 18px;
+}
+
+#sideNavigation {
+    position: fixed;
+    margin-left: 50%;
+}
+
+.conetentClose {
+    padding-top: 10px;
+    width: 100%;
+    transition: 1.5s;
+    /* position: static; */
+    /* margin-right: 50%; */
+    /* background-color: rgb(131, 122, 122); */
+}
+
+.conetentOpen {
+    padding-top: 10px;
+    transition: 1.5s;
+    width: 100%;
+    right: 62%;
+    /* padding-right: 50%; */
+    /* width: 50%; */
+    position: relative;
+    /* margin-right: 70%; */
+    /* background-color: rgb(131, 122, 122); */
+}
+
+.iconMenu {
+    margin-right: 15px;
+    font-size: 38px;
+    z-index: 2;
+    position: relative;
+}
