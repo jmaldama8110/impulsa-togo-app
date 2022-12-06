@@ -8,9 +8,9 @@
     "@awesome-cordova-plugins/core": "^6.2.0",
     "@awesome-cordova-plugins/document-viewer": "^6.2.0",
     "@awesome-cordova-plugins/file-opener": "^6.2.0",
-    "@awesome-cordova-plugins/firebase": "^6.2.0",
     "@awesome-cordova-plugins/in-app-browser": "^6.2.0",
     "@awesome-cordova-plugins/sms-retriever": "^6.2.0",
+    "@capacitor/android": "4.5.0",
     "@capacitor/app": "4.1.1",
     "@capacitor/camera": "^4.1.4",
     "@capacitor/core": "4.5.0",
@@ -39,11 +39,11 @@
     "axios": "^1.2.0",
     "call-number": "^1.0.1",
     "cordova-plugin-file-opener2": "^3.0.5",
-    "cordova-plugin-firebase": "^2.0.5",
     "crypto-js": "^4.1.1",
     "env-cmd": "^10.1.0",
     "history": "^4.9.0",
     "ionicons": "^6.0.4",
+    "jetifier": "^2.0.0",
     "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-doc-viewer": "^0.1.5",
@@ -95,5 +95,6 @@
     "@capacitor/cli": "4.5.0",
     "@types/crypto-js": "^4.1.1"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "postinstall": "npx jetify"
 }

@@ -6,6 +6,8 @@ import VerificationCodeForm from '../../components/VerificationCodeForm';
 import UserService from '../../Services/UserService';
 import { HttpStatusCode } from '../../constants/HttpStatusCode';
 import { PushNotifications, Token } from '@capacitor/push-notifications';
+import { Firebase } from '@ionic-native/firebase';
+import { Toast } from '@capacitor/toast';
 
 const VerificationCode: React.FC = () => {
   let [seg, setSeg] = useState(59);
@@ -23,6 +25,65 @@ const VerificationCode: React.FC = () => {
     num3: '',
     num4: ''
   });
+
+  const showToast = async (msg: string) => {
+    await Toast.show({
+      text: msg
+    });
+  };
+
+  useEffect(() => {
+    PushNotifications.checkPermissions().then((res) => {
+      if (res.receive !== 'granted') {
+        PushNotifications.requestPermissions().then((res) => {
+          if (res.receive === 'denied') {
+            showToast('Permiso de notificación push denegado');
+          } else {
+            showToast('Permiso de notificación push concedido');
+            register();
+          }
+        });
+      } else {
+        register();
+      }
+    });
+  }, []);
+
+  const register = () => {
+    PushNotifications.createChannel({
+      id: 'testchannel1',
+      name: 'ChannelPush',
+      description: 'Channel custom',
+      importance: 5,
+      sound: 'default',
+      vibration: true,
+      visibility: -1,
+      lights: true
+    }).then(() => {
+      console.log('Channel created');
+      PushNotifications.listChannels().then((channels) => console.log('List of channels' + JSON.stringify(channels)));
+    });
+    console.log('Token iOS: ', Firebase.getToken());
+    // Register with Apple / Google to receive push via APNS/FCM
+    PushNotifications.register();
+
+    // On success, we should be able to receive notifications
+    PushNotifications.addListener('registration',
+      (token: Token) => {
+        // showToast('Push registration success');
+        setToken1(JSON.stringify(token.value));
+        console.log('Token-Firebase: ', token.value);
+      }
+    );
+
+    // Some issue with our setup and push will not work
+    PushNotifications.addListener('registrationError',
+      (error: any) => {
+        present('Error on registration: ' + JSON.stringify(error));
+      }
+    );
+  };
+
 
   const resendCode = async (event: any) => {
     event.preventDefault();
@@ -52,37 +113,7 @@ const VerificationCode: React.FC = () => {
 
   const SendDataRegisUser = async (event: any) => {
     event.preventDefault();
-    PushNotifications.createChannel({
-      id: 'testchannel1',
-      name: 'ChannelPush',
-      description: 'Channel custom',
-      importance: 5,
-      sound: 'default',
-      vibration: true,
-      visibility: 1,
-      lights: true
-    }).then(() => {
-      console.log('Channel created');
-      PushNotifications.listChannels().then((channels) => console.log('List of channels' + JSON.stringify(channels)));
-    });
-    // Register with Apple / Google to receive push via APNS/FCM
-    PushNotifications.register();
 
-    // On success, we should be able to receive notifications
-    PushNotifications.addListener('registration',
-      (token: Token) => {
-        // showToast('Push registration success');
-        setToken1(JSON.stringify(token.value));
-        console.log('Token-Firebase: ', token.value);
-      }
-    );
-
-    // Some issue with our setup and push will not work
-    PushNotifications.addListener('registrationError',
-      (error: any) => {
-        present('Error on registration: ' + JSON.stringify(error));
-      }
-    );
     // const code4D = code.num1 + code.num2 + code.num3 + code.num4;
     const code4D = code.num1 + code.num2 + code.num3 + code.num4;
     if (code4D.length !== 4) {
@@ -109,6 +140,7 @@ const VerificationCode: React.FC = () => {
         }).then(response => {
           console.log('Success:', response);
           if (response.status === HttpStatusCode.InvalidData) {
+            setShowLoading(false);
             present(`${response.message}`, [{ text: 'Ok' }]);
           } else if (response.status === HttpStatusCode.Success) {
             localStorage.clear();

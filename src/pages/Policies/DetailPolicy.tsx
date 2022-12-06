@@ -12,6 +12,7 @@ import { CallNumber } from '@awesome-cordova-plugins/call-number';
 import { FileOpener } from '@awesome-cordova-plugins/file-opener';
 import { Capacitor } from '@capacitor/core';
 import businessServices from '../../Services/BusinessServices';
+import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 // import { Browser } from '@capacitor/browser';
 // import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser';
 
@@ -25,6 +26,8 @@ const DetailPolicy: React.FC = () => {
   const [showToast, setShowToast] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState();
   const [nameInsurance, setNameInsurance] = useState();
+  const [nameExternal, setNameExternal] = useState('');
+  const [policyNumber, setPolicyNumber] = useState();
   const formato = 'dddd DD MMMM YYYY';
   const aliasPolicie = localStorage.getItem('aliasPolicy');
   const callNumber = CallNumber;
@@ -44,66 +47,106 @@ const DetailPolicy: React.FC = () => {
     const hora = hora1?.split(':').join('-');
     const nomArchivo = `${aliasPolicie}-${idP}-${fecha}-${hora}`;
 
-    File.createDir(
-      File.externalApplicationStorageDirectory,
-      'Pólizas Impulsa',
-      true
-    ).then(() => {
-      File.checkFile(
-        File.externalApplicationStorageDirectory + '/Pólizas Impulsa/',
-        `${nomArchivo}.pdf`
-      ).then(() => {
-        try {
-          FileOpener.open(File.externalApplicationStorageDirectory + `/Pólizas Impulsa/${nomArchivo}.pdf`,
-            'application/pdf').then(() => { })
-            .catch(e => alert('Error opening file' + JSON.stringify(e)));
-        } catch (err) {
-          present('No encontrado');
-        }
-      })
-        .catch(async () => {
-          setShowToast(true);
-
-          const dato = JSON.stringify({
-            idPolicie
-          });
-          try {
-            await PolicyService.DownloadPDF(dato).then(res => res.data)
-              .then(
-                response => {
-                  setShowToast(false);
-
-                  try {
-                    // ----Descarga----
-                    File.writeFile(
-                      File.externalApplicationStorageDirectory + '/Pólizas Impulsa',
-                      `${nomArchivo}.pdf`,
-                      response
-                    ).then(() => {
-                      FileOpener.open(File.externalApplicationStorageDirectory + `/Pólizas Impulsa/${nomArchivo}.pdf`,
-                        'application/pdf').then(() => { })
-                        .catch(e => alert('Error opening file' + JSON.stringify(e)));
-                    })
-                      .catch((error) => {
-                        console.log(error);
-                      });
-                  } catch (e) {
-                    setShowToast(false);
-                    present('El error es: ' + e);
-                  }
-                })
-              .catch((e) => {
-                console.log(e);
-                setShowToast(false);
-                present('El archivo no se encuentra almacenado en el servidor.', [{ text: 'Aceptar' }]);
-              });
-          } catch (e) {
-            setShowToast(false);
-            present('Error de conexión', [{ text: 'Aceptar' }]);
-            console.log(e);
-          }
-        });
+    const dato = JSON.stringify({
+      idPolicie
     });
+
+
+    const filePath = `file:///data/user/0/mx.impulsaasesores.togo/files/${nomArchivo}.pdf`
+
+    Filesystem.readFile({
+      path: filePath,
+    }).then((data) => {
+      FileOpener.open(filePath, 'application/pdf').then(() => { })
+        .catch(e => present('Error opening file' + JSON.stringify(e)));
+    }).catch((err => {
+      // present('No encontrado');
+      setShowToast(true);
+      PolicyService.DownloadPDF(dato).then((res) => {
+        const fileBase64 = res.data.data;
+        setShowToast(false);
+        Filesystem.appendFile({
+          path: `${nomArchivo}.pdf`,
+          data: fileBase64,
+          directory: Directory.Data,
+        }).then((result: any) => {
+          setShowToast(false);
+          const filePath = result.uri;
+          // alert(filePath)
+          FileOpener.open(filePath,
+            'application/pdf').then(() => { })
+            .catch(e => present('Error opening file' + JSON.stringify(e)));
+        }).catch((err) => {
+          setShowToast(false);
+          present('Bad' + err)
+        })
+      }).catch((e) => {
+        console.log(e);
+        setShowToast(false);
+        present('El archivo no se encuentra almacenado en el servidor.', [{ text: 'Aceptar' }]);
+      });
+    }));
+
+    // File.createDir(
+    //   File.externalApplicationStorageDirectory,
+    //   'Pólizas Impulsa',
+    //   true
+    // ).then(() => {
+    //   File.checkFile(
+    //     File.externalApplicationStorageDirectory + '/Pólizas Impulsa/',
+    //     `${nomArchivo}.pdf`
+    //   ).then(() => {
+    //     try {
+    //       FileOpener.open(File.externalApplicationStorageDirectory + `/Pólizas Impulsa/${nomArchivo}.pdf`,
+    //         'application/pdf').then(() => { })
+    //         .catch(e => alert('Error opening file' + JSON.stringify(e)));
+    //     } catch (err) {
+    //       present('No encontrado');
+    //     }
+    //   })
+    //     .catch(async () => {
+    //       setShowToast(true);
+
+    //       const dato = JSON.stringify({
+    //         idPolicie
+    //       });
+    //       try {
+    //         await PolicyService.DownloadPDF(dato).then(res => res.data)
+    //           .then(
+    //             response => {
+    //               setShowToast(false);
+
+    //               try {
+    //                 // ----Descarga----
+    //                 File.writeFile(
+    //                   File.externalApplicationStorageDirectory + '/Pólizas Impulsa',
+    //                   `${nomArchivo}.pdf`,
+    //                   response
+    //                 ).then(() => {
+    //                   FileOpener.open(File.externalApplicationStorageDirectory + `/Pólizas Impulsa/${nomArchivo}.pdf`,
+    //                     'application/pdf').then(() => { })
+    //                     .catch(e => alert('Error opening file' + JSON.stringify(e)));
+    //                 })
+    //                   .catch((error) => {
+    //                     console.log(error);
+    //                   });
+    //               } catch (e) {
+    //                 setShowToast(false);
+    //                 present('El error es: ' + e);
+    //               }
+    //             })
+    //           .catch((e) => {
+    //             console.log(e);
+    //             setShowToast(false);
+    //             present('El archivo no se encuentra almacenado en el servidor.', [{ text: 'Aceptar' }]);
+    //           });
+    //       } catch (e) {
+    //         setShowToast(false);
+    //         present('Error de conexión', [{ text: 'Aceptar' }]);
+    //         console.log(e);
+    //       }
+    //     });
+    // });
   };
 
   const downloadIos = async () => {
@@ -195,13 +238,15 @@ const DetailPolicy: React.FC = () => {
     });
     PolicyService.PolicyDetail(data).then(res => res.data)
       .then(response => {
-        console.log('Respuesta detalle', response);
+        // console.log('Respuesta detalle', response);
         if (response.status === HttpStatusCode.Success) {
-          console.log(response.data);
+          // console.log(response.data);
           updateDatos([response.data]);
           setPropie([response.client]);
           setPhoneNumber(response.data.phoneNumber);
           setNameInsurance(response.data.name);
+          setNameExternal(response.client.fullName)
+          setPolicyNumber(response.data.policyNumber)
         } else {
           present('Póliza no encontrada');
           history.replace('myPolicies');
@@ -219,11 +264,13 @@ const DetailPolicy: React.FC = () => {
       .catch(err => console.log('Error', err));
   };
 
-  const sendEmail = (insurance:string) => {
+  const sendEmail = (insurance: string) => {
     const fullName = localStorage.getItem('nameUser');
     const bodyRequest = {
       fullName: fullName,
-      insurance: insurance
+      insurance: insurance,
+      nameExternal: nameExternal,
+      policyNumber: policyNumber
     };
 
     businessServices.SendEmailSiniestro(bodyRequest).then(() => {
@@ -233,7 +280,7 @@ const DetailPolicy: React.FC = () => {
     });
   };
 
-  function failedImageLoad (e: any) {
+  function failedImageLoad(e: any) {
     setImgExists(false);
   }
 
@@ -271,7 +318,7 @@ const DetailPolicy: React.FC = () => {
               </IonCol>
 
               <IonCol size="12" >
-                  <div className={Status.class(dato.status as string)}>{Status.validar(dato.status as string)}</div>
+                <div className={Status.class(dato.status as string)}>{Status.validar(dato.status as string)}</div>
                 <div className="ion-content-center" >
                   <div className="content1">
                     <IonLabel className='LabelTitle' >Asegurado</IonLabel>
@@ -307,7 +354,7 @@ const DetailPolicy: React.FC = () => {
               </IonCol>
 
               <IonCol size="12">
-              <div className='statusSkeleton'> <IonSkeletonText animated style={{ width: '80%' }} /></div>
+                <div className='statusSkeleton'> <IonSkeletonText animated style={{ width: '80%' }} /></div>
                 <div className="ion-text-center">
                   <IonSkeletonText animated style={{ width: '80%', height: '15px', left: '10%' }} />
                   <div className='ion-text-center subtitle'>
@@ -346,7 +393,7 @@ const DetailPolicy: React.FC = () => {
                 </div>
               </IonCol>
             </div>
-            )
+          )
         }
 
       </IonContent>
@@ -364,7 +411,7 @@ const DetailPolicy: React.FC = () => {
       </IonFooter>
 
       <IonToast
-        cssClass= 'toast-download'
+        cssClass='toast-download'
         isOpen={showToast}
         message="Descargando archivo..."
       />

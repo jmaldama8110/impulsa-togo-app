@@ -26,7 +26,7 @@ const NotificationPage: React.FC = () => {
         present('Error de conexión', [{ text: 'Ok' }]);
         console.error('Error:', error);
       }).then(response => {
-        console.log('Success:', response);
+        // console.log('Success:', response);
         setNotifications(response.reverse());
       });
   }, []);

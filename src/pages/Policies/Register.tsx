@@ -96,7 +96,7 @@ const RegisterPolice: React.FC = () => {
         />
       </IonContent>
       <IonFooter className="ion-no-border">
-          <IonToolbar color='white'>
+          <IonToolbar>
             <IonRow>
               <IonCol size='1'> </IonCol>
               <IonCol size='10'>
