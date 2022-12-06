@@ -71,7 +71,7 @@ class PolicyService {
   DownloadPDF (data:any) : Promise<any> {
     data = JSON.parse(data);
     const res = axios.get(`${Endpoints.DownloadPolicy}/${data.idPolicie}`, {
-      responseType: 'blob'
+      // responseType: 'blob'
     });
     return res;
   }

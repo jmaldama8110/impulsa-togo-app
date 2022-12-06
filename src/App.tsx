@@ -52,16 +52,19 @@ setupIonicReact();
 let Rutainicio = '/OnboardingScreen';
 const user = localStorage.getItem('externalId');
 const mostrar = localStorage.getItem('Onboarding');
+const idUserPending = localStorage.getItem('Id');
 
-if (user != null) {
-  Rutainicio = '/home';
+if (idUserPending != null) {
+  Rutainicio = '/verficationCode';
 } else {
-  // alert('encontrado');
-  // Rutainicio = '/OnboardingScreen';
-  if (mostrar != null) {
-    Rutainicio = '/Login-Register';
+  if (user != null) {
+    Rutainicio = '/home';
   } else {
-    Rutainicio = '/OnboardingScreen';
+    if (mostrar != null) {
+      Rutainicio = '/Login-Register';
+    } else {
+      Rutainicio = '/OnboardingScreen';
+    }
   }
 }
 
@@ -97,7 +100,7 @@ const App: React.FC = () => {
             {/* <Route path="/detailPolicy" render={() => <AppTabs />} exact/> */}
 
           </IonSplitPane>
-            <Route path="/contacUs" render={() => <AppTabs />} exact />
+          <Route path="/contacUs" render={() => <AppTabs />} exact />
         </IonRouterOutlet>
       </IonReactRouter>
     </IonApp>

@@ -134,11 +134,11 @@ const DonwloadPolicies: React.FC = () => {
     </IonContent>
 
     <IonFooter className="ion-no-border">
-      <IonToolbar color='white'>
+      <IonToolbar>
         <IonRow>
           <IonCol size='1'> </IonCol>
           <IonCol size='10'>
-            <IonButton class="btn-D btn2-D" expand="block" color="primary" onClick={() => enviar(event) } disabled={disabledButton} >Sincronizar pólizas</IonButton>
+            <IonButton class="btn-D btn2-D" expand="block" color="primary" onClick={(event) => enviar(event) } disabled={disabledButton} >Sincronizar pólizas</IonButton>
             <IonButton class="btn-D btn3-D" expand="block" color="secondary" onClick={() => history.replace('/registerPolicy')}><IonText color='primary'>Regresar</IonText></IonButton>
           </IonCol>
           <IonCol size='1'></IonCol>
