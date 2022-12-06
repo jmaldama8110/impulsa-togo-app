@@ -70,11 +70,6 @@ const DonwloadPolicies: React.FC = () => {
       setDisabledButton(true);
     }
   };
-  
-
-  const onSincronizarPolizas = (e:any) =>{
-    enviar(e);
-  }
 
   const enviar = async (event: any) => {
     const idUser = localStorage.getItem('idUser');
