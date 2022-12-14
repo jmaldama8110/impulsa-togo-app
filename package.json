@@ -38,6 +38,7 @@
     "@types/react-router-dom": "^5.1.7",
     "axios": "^1.2.0",
     "call-number": "^1.0.1",
+    "cordova-plugin-app-version": "^0.1.14",
     "cordova-plugin-file-opener2": "^3.0.5",
     "crypto-js": "^4.1.1",
     "env-cmd": "^10.1.0",
@@ -68,7 +69,7 @@
     "workbox-streams": "^5.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PORT=8100 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --transformIgnorePatterns 'node_modules/(?!(@ionic/react|@ionic/react-router|@ionic/core|@stencil/core|ionicons)/)'",
     "eject": "react-scripts eject"
