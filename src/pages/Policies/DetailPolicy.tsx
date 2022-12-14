@@ -51,8 +51,9 @@ const DetailPolicy: React.FC = () => {
       idPolicie
     });
 
+    const pathsystem = await Filesystem.getUri({path: '', directory: Directory.Data});
 
-    const filePath = `file:///data/user/0/mx.impulsaasesores.togo/files/${nomArchivo}.pdf`
+    const filePath = `${pathsystem.uri}/${nomArchivo}.pdf`;
 
     Filesystem.readFile({
       path: filePath,
@@ -86,147 +87,6 @@ const DetailPolicy: React.FC = () => {
         present('El archivo no se encuentra almacenado en el servidor.', [{ text: 'Aceptar' }]);
       });
     }));
-
-    // File.createDir(
-    //   File.externalApplicationStorageDirectory,
-    //   'Pólizas Impulsa',
-    //   true
-    // ).then(() => {
-    //   File.checkFile(
-    //     File.externalApplicationStorageDirectory + '/Pólizas Impulsa/',
-    //     `${nomArchivo}.pdf`
-    //   ).then(() => {
-    //     try {
-    //       FileOpener.open(File.externalApplicationStorageDirectory + `/Pólizas Impulsa/${nomArchivo}.pdf`,
-    //         'application/pdf').then(() => { })
-    //         .catch(e => alert('Error opening file' + JSON.stringify(e)));
-    //     } catch (err) {
-    //       present('No encontrado');
-    //     }
-    //   })
-    //     .catch(async () => {
-    //       setShowToast(true);
-
-    //       const dato = JSON.stringify({
-    //         idPolicie
-    //       });
-    //       try {
-    //         await PolicyService.DownloadPDF(dato).then(res => res.data)
-    //           .then(
-    //             response => {
-    //               setShowToast(false);
-
-    //               try {
-    //                 // ----Descarga----
-    //                 File.writeFile(
-    //                   File.externalApplicationStorageDirectory + '/Pólizas Impulsa',
-    //                   `${nomArchivo}.pdf`,
-    //                   response
-    //                 ).then(() => {
-    //                   FileOpener.open(File.externalApplicationStorageDirectory + `/Pólizas Impulsa/${nomArchivo}.pdf`,
-    //                     'application/pdf').then(() => { })
-    //                     .catch(e => alert('Error opening file' + JSON.stringify(e)));
-    //                 })
-    //                   .catch((error) => {
-    //                     console.log(error);
-    //                   });
-    //               } catch (e) {
-    //                 setShowToast(false);
-    //                 present('El error es: ' + e);
-    //               }
-    //             })
-    //           .catch((e) => {
-    //             console.log(e);
-    //             setShowToast(false);
-    //             present('El archivo no se encuentra almacenado en el servidor.', [{ text: 'Aceptar' }]);
-    //           });
-    //       } catch (e) {
-    //         setShowToast(false);
-    //         present('Error de conexión', [{ text: 'Aceptar' }]);
-    //         console.log(e);
-    //       }
-    //     });
-    // });
-  };
-
-  const downloadIos = async () => {
-    const idPolicie = localStorage.getItem('idPolicy');
-    const idP = idPolicie?.slice(-4);
-    const fechaUpdate = localStorage.getItem('fechaUpdate');
-    const fecha = fechaUpdate?.substring(0, 10);
-    const hora1 = fechaUpdate?.substring(11, 19);
-    const hora = hora1?.split(':').join('-');
-    const nomArchivo = `${aliasPolicie}-${idP}-${fecha}-${hora}`;
-
-    File.createDir(
-      File.tempDirectory,
-      'Pólizas Impulsa',
-      true
-    ).then(() => {
-      File.checkFile(
-        File.tempDirectory + '/Pólizas Impulsa/',
-        `${nomArchivo}.pdf`
-      ).then(() => {
-        try {
-          FileOpener.open(File.tempDirectory + `/Pólizas Impulsa/${nomArchivo}.pdf`,
-            'application/pdf').then(() => { })
-            .catch(e => alert('Error opening file' + JSON.stringify(e)));
-        } catch (err) {
-          present('No encontrado');
-        }
-      })
-        .catch(async () => {
-          setShowToast(true);
-
-          const dato = JSON.stringify({
-            idPolicie
-          });
-          try {
-            await PolicyService.DownloadPDF(dato).then(res => res.data)
-              .then(
-                response => {
-                  setShowToast(false);
-
-                  try {
-                    // ----Descarga----
-                    File.writeFile(
-                      File.tempDirectory + '/Pólizas Impulsa',
-                      `${nomArchivo}.pdf`,
-                      response
-                    ).then(() => {
-                      FileOpener.open(File.tempDirectory + `/Pólizas Impulsa/${nomArchivo}.pdf`,
-                        'application/pdf').then(() => { })
-                        .catch(e => alert('Error opening file' + JSON.stringify(e)));
-                    })
-                      .catch((error) => {
-                        console.log(error);
-                      });
-                  } catch (e) {
-                    setShowToast(false);
-                    present('El error es: ' + e);
-                  }
-                })
-              .catch((e) => {
-                console.log(e);
-                setShowToast(false);
-                present('El archivo no se encuentra almacenado en el servidor.', [{ text: 'Aceptar' }]);
-              });
-          } catch (e) {
-            setShowToast(false);
-            present('Error de conexión', [{ text: 'Aceptar' }]);
-            console.log(e);
-          }
-        });
-    });
-  };
-
-  const validarPlat = () => {
-    if (Capacitor.getPlatform() === 'ios') {
-      downloadIos();
-    } else {
-      // alert('estas en android');
-      downloadPdf();
-    }
   };
 
   const [imgExists, setImgExists] = useState(true);
@@ -402,7 +262,7 @@ const DetailPolicy: React.FC = () => {
           <IonRow className='bodyFooter'>
             <IonCol size='1'> </IonCol>
             <IonCol size='10'>
-              <IonButton onClick={() => validarPlat()} expand="block" className='btnContinuar btnBack' fill='clear' color='light' size='large'>Descargar Carátula</IonButton>
+              <IonButton onClick={() => downloadPdf()} expand="block" className='btnContinuar btnBack' fill='clear' color='light' size='large'>Descargar Carátula</IonButton>
               <IonButton expand="block" className='btnContinuar2 btnSubmit' color='light' size='large' onClick={() => { sendEmail(nameInsurance!); call(); }} ><IonText color='primary'>Reportar Siniestro</IonText></IonButton>
             </IonCol>
             <IonCol size='1'></IonCol>
