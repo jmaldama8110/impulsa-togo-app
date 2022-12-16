@@ -38,6 +38,7 @@ const DetailPolicy: React.FC = () => {
     });
   });
 
+
   async function blobToBase64(blob:Blob, callback:any){
     const reader = new FileReader();
     reader.readAsDataURL(blob);
