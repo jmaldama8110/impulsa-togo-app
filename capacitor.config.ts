@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'mx.impulsaasesores.togo',
-  appName: 'impulsa-togo-app',
+  appName: 'Impulsa To Go',
   webDir: 'build',
   bundledWebRuntime: false
 };

@@ -156,7 +156,7 @@ const SignIn: React.FC = () => {
           <IonCol size='1'> </IonCol>
           <IonCol size='10'>
             <form onSubmit={CapturarDatos} method="">
-              <IonLabel className="label">Número de telefono</IonLabel>
+              <IonLabel className="label">Número de teléfono</IonLabel>
               <Input className="label" change={handleInputChange}
                 type='tel' name='phone' placeHolder='Introducir número teléfono'
                 nameRequerido='undefined'

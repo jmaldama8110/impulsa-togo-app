@@ -19,7 +19,9 @@ export const Endpoints = {
   SelectPolicies: `${BASE_URL}/app/selectPolicy`,
   MyPolicies: `${BASE_URL}/app/policies`,
   DetailPolicy: `${BASE_URL}/app/policyDetail`,
-  DownloadPolicy: `${BASE_URL}/app/policie`,
+  // DownloadPolicy: `${BASE_URL}/app/policie`,
+  // DownloadPolicy: `${BASE_URL}/sync/policie`,
+  DownloadPolicy: `${BASE_URL}/app/pruebaBlobPDF`,
   EditAlias: `${BASE_URL}/app/updateAlias`,
 
   // BusinessService
