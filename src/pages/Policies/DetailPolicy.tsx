@@ -38,6 +38,21 @@ const DetailPolicy: React.FC = () => {
     });
   });
 
+  async function blobToBase64(blob:Blob, callback:any){
+    const reader = new FileReader();
+    reader.readAsDataURL(blob);
+    reader.onloadend = function () {
+      const base64String = reader.result as string;
+      const base = (base64String).split(',')[1]
+      // return base
+      callback(base);
+    }
+    reader.onerror = () => {
+      console.log('Error al procesar', reader.error)
+    }
+
+  }
+
   const downloadPdf = async () => {
     const idPolicie = localStorage.getItem('idPolicy');
     const idP = idPolicie?.slice(-4);
@@ -63,28 +78,36 @@ const DetailPolicy: React.FC = () => {
     }).catch((err => {
       // present('No encontrado');
       setShowToast(true);
-      PolicyService.DownloadPDF(dato).then((res) => {
-        const fileBase64 = res.data.data;
+      PolicyService.DownloadPDF(dato).then(async(res) => {
+        const fileBase64 = res.data;
         setShowToast(false);
-        Filesystem.appendFile({
-          path: `${nomArchivo}.pdf`,
-          data: fileBase64,
-          directory: Directory.Data,
-        }).then((result: any) => {
-          setShowToast(false);
-          const filePath = result.uri;
-          // alert(filePath)
-          FileOpener.open(filePath,
-            'application/pdf').then(() => { })
-            .catch(e => present('Error opening file' + JSON.stringify(e)));
-        }).catch((err) => {
-          setShowToast(false);
-          present('Bad' + err)
-        })
+        console.log(res.data);
+
+        await blobToBase64(fileBase64, function(result:any){
+
+          Filesystem.writeFile({
+            path: `${nomArchivo}.pdf`,
+            data: result,
+            directory: Directory.Data,
+          }).then((result: any) => {
+            setShowToast(false);
+            const filePath = result.uri;
+            // alert(filePath)
+            FileOpener.open(filePath,
+              'application/pdf').then(() => { })
+              .catch(e => present('Error opening file' + JSON.stringify(e)));
+          }).catch((err) => {
+            setShowToast(false);
+            present('Bad' + err)
+          });
+          
+        });
+        
       }).catch((e) => {
         console.log(e);
         setShowToast(false);
-        present('El archivo no se encuentra almacenado en el servidor.', [{ text: 'Aceptar' }]);
+        // present('El archivo no se encuentra almacenado en el servidor.', [{ text: 'Aceptar' }]);
+        present('Error al procesar el archivo.', [{ text: 'Aceptar' }]);
       });
     }));
   };
