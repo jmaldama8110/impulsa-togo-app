@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">impulsa-togo-app</string>
-    <string name="title_activity_main">impulsa-togo-app</string>
+    <string name="app_name">Impulsa To Go</string>
+    <string name="title_activity_main">Impulsa To Go</string>
     <string name="package_name">mx.impulsaasesores.togo</string>
     <string name="custom_url_scheme">mx.impulsaasesores.togo</string>
 </resources>
