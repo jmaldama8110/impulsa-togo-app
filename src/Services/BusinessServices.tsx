@@ -9,12 +9,7 @@ class BusinessService {
   };
 
   SendEmailSiniestro (data:any) : Promise<any> {
-    const { fullName, insurance } = data;
-
-    const res = axios.post(Endpoints.sendEmailSiniestro, {
-      fullName: fullName,
-      insurance: insurance
-    });
+    const res = axios.post(Endpoints.sendEmailSiniestro, data);
 
     return res;
   };

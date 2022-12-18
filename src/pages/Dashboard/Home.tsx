@@ -37,10 +37,10 @@ const Home: React.FC = () => {
   };
 
   useEffect(() => {
-    console.log('count: ', countNotifications);
+    // console.log('count: ', countNotifications);
     PushNotifications.addListener('pushNotificationReceived',
       (notification: PushNotificationSchema) => {
-        console.log('Entregada');
+        // console.log('Entregada');
         localStorage.setItem('countNotifications', localStorage.getItem('countNotifications') ? (parseInt(localStorage.getItem('countNotifications')!) + 1).toString() : (0 + 1).toString());
         setCountNotifications(parseInt(localStorage.getItem('countNotifications')!));
       }
@@ -48,12 +48,12 @@ const Home: React.FC = () => {
 
     PushNotifications.addListener('pushNotificationActionPerformed',
       (notification: ActionPerformed) => {
-        console.log('Tap');
+        // console.log('Tap');
         localStorage.setItem('countNotifications', localStorage.getItem('countNotifications') ? (parseInt(localStorage.getItem('countNotifications')!) + 1).toString() : (0 + 1).toString());
         history.replace('/notify');
       }
     );
-    console.log('count: ', countNotifications);
+    // console.log('count: ', countNotifications);
   }, []);
 
   useEffect(() => {

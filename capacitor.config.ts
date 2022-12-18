@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'impulsa-togo-app',
+  appId: 'mx.impulsaasesores.togo',
+  appName: 'Impulsa To Go',
   webDir: 'build',
   bundledWebRuntime: false
 };

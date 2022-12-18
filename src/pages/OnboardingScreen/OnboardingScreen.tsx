@@ -23,22 +23,7 @@ const slideOpts = {
 const OnboardingScreen: React.FC = () => {
   const history = useHistory();
   const [alert] = useIonAlert();
-  const [datos, setDatos] = useState([] as any);
-  document.addEventListener('ionBackButton', (ev: any) => {
-    ev.detail.register(100, () => {
-      alert({
-        cssClass: 'my-css',
-        header: '¿Desea salir? ',
-        message: 'Se cerrará la aplicación',
-        buttons: [
-          { text: 'Cancelar', handler: () => console.log('Cancel pressed') },
-          { text: 'Aceptar', handler: () => App.exitApp() }
-        ]
-      });
-    });
-  });
-
-  const contenido = [
+  const datos = [
     {
       id: 1,
       img: 'assets/icon/newIcons/Policies.svg',
@@ -67,10 +52,19 @@ const OnboardingScreen: React.FC = () => {
       txtclass2: 'txt2O'
     }
   ];
-
-  useEffect(() => {
-    setDatos(contenido);
-  }, []);
+  document.addEventListener('ionBackButton', (ev: any) => {
+    ev.detail.register(100, () => {
+      alert({
+        cssClass: 'my-css',
+        header: '¿Desea salir? ',
+        message: 'Se cerrará la aplicación',
+        buttons: [
+          { text: 'Cancelar', handler: () => console.log('Cancel pressed') },
+          { text: 'Aceptar', handler: () => App.exitApp() }
+        ]
+      });
+    });
+  });
 
   const slideRef = useRef<any>(null);
   const siguiente = async () => {
